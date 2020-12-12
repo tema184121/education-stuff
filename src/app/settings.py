@@ -83,10 +83,15 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.environ.get('PG_DATABASE', 'app-base'),
+        'HOST': os.environ.get('PG_HOST', 'localhost'),
+        'PASSWORD': os.environ.get('PG_PASSWORD', 'app-password'),
+        'PORT': os.environ.get('PG_PORT', ''),
+        'USER': os.environ.get('PG_USER', 'mcproger'),
+    },
 }
+
 
 AUTH_USER_MODEL = 'users.User'
 

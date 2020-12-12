@@ -1,0 +1,22 @@
+stages:
+  - test
+
+services:
+  - postgres:12.2-alpine
+
+variables:
+  POSTGRES_DB: app-base
+  POSTGRES_USER: mcproger
+  POSTGRES_PASSWORD: "passwordfortests"
+  POSTGRES_HOST_AUTH_METHOD: trust
+
+test:
+  tags:
+    - app-tests
+  stage: test
+  image: python:3.8
+  script:
+    - pip install -r requirements.txt
+    - PG_PASSWORD=$POSTGRES_PASSWORD PG_HOST=postgres make check
+  except:
+    - /^AUTO-DIFF-.*$/
