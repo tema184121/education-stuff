@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'behaviors.apps.BehaviorsConfig',
 
     'authentication',
+    'channels',
     'users',
+    'videos',
 ]
 
 MIDDLEWARE = [
