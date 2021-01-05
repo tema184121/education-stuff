@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:12.2-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=app-base
+      - POSTGRES_USER=mcproger
+      - POSTGRES_PASSWORD=app-password
+      - PGDATA=/var/lib/postgresql/data/db-files/
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
