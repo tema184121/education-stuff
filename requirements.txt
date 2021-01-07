@@ -6,6 +6,8 @@ djangorestframework-simplejwt==4.6.0
 django-behaviors==0.5.1
 django-storages==1.11.1
 
+psycopg2-binary==2.8.6
+
 
 pytest==6.1.2
 pytest-django==4.1.0
